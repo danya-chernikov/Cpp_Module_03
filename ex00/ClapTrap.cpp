@@ -88,17 +88,16 @@ void ClapTrap::beRepaired(unsigned amount)
 
 	--energy_points;
 
-	std::cout << "ClapTrap " << name << " repairs itself getting ";
-	if (amount > UINT_MAX - hit_points)
-	{
-		hit_points = UINT_MAX;
-		std::cout << UINT_MAX << " of hit points\n";
-	}
-	else
-	{
-		hit_points += amount;
-		std::cout << amount << " of hit points\n";
-	}
+	unsigned restored = amount;
+
+	if (restored > UINT_MAX - hit_points)
+		restored = UINT_MAX - hit_points;
+
+	hit_points += restored;
+
+	std::cout << "ClapTrap " << name
+			  << " repairs itself, restoring "
+			  << restored << " hit points\n";
 }
 
 /* ############################################################
