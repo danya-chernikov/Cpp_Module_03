@@ -58,7 +58,7 @@ void ScavTrap::guardGate()
 /* Overloaded operators */
 ScavTrap &ScavTrap::operator = (const ScavTrap &obj)
 {
-	std::cout << "ScavTrap assignment operator called\n";
+	std::cout << "ScavTrap assignment operator is called\n";
 
 	if (this != &obj)
 		ClapTrap::operator=(obj);
